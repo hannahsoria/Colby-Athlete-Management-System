@@ -1,0 +1,71 @@
+<!-- HTML athleteView creates the front end for this page
+ 2022 revised in 2026 -->
+
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+
+<!-- makes main title -->
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card corona-gradient-card">
+          <div class="card-body py-0 px-0 px-sm-3">
+            <div class="row align-items-center">
+              <div class="col-4 col-sm-3 col-xl-2">
+              </div>
+              <div class="col-5 col-sm-7 col-xl-8 p-0 text-center">
+                <h2 class="mb-1 mb-sm-0">Colby College Athlete Management System</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- specifies name of specific athlete -->
+      <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card-body py-0 px-0 px-sm-3">
+              <div class="row align-items-center">
+                <div class="col-4 col-sm-3 col-xl-2">
+                </div>
+                <div class="col-5 col-sm-7 col-xl-8 p-0 text-center">
+                  <h1 class="mb-1 mb-sm-0">{{athlete_name}}</h1>  
+    		        </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- ahtletes stats -->
+    <div class="row">
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">{{athlete_name}}s Stats</h4>
+            <div id = "chart1"></div>
+         
+            <!--plotly CDN-->
+            <!-- plotly chart -->
+            <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+            <script type="application/json" id="graph-data">
+              {{ graphJSON | tojson }}
+            </script>
+
+            <script>
+              const graphs = JSON.parse(
+                document.getElementById("graph-data").textContent
+              );
+
+              Plotly.newPlot("chart1", graphs.data, graphs.layout);
+            </script>
+
+          </div>   
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

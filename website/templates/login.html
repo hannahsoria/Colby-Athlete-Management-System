@@ -1,0 +1,95 @@
+<!-- HTML login creates the front end for this page
+ 2022 revised in 2026 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Colby College Athlete Management System</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="static/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="static/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="static/images/logo.svg" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div class="col-12 col-sm-12 col-xl-12 p-0 mb-0 text-center">
+            <h1 class=" mb-0 mb-sm-0">Colby College Athlete Management System</h1>
+          </div>
+        </nav>
+        <div class="row w-100 m-0">
+          <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+            <div class="col-lg-4 mx-auto">
+              <div class="card">
+                <div class="card-body px-5 py-5">
+                  {% with msg=get_flashed_messages()%}
+                    {% if msg %}
+                      {% for m in msg %}
+                        <h4>{{ m }}</h4>
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+                  <h3 class="card-title text-left mb-3">Login</h3>
+                  <form method="POST">
+                    <div class="form-group">
+                      <label>Colby email *</label>
+                      <input type="email" id="email" name="email" class="form-control p_input">
+                    </div>
+                    <div class="form-group">
+                      <label>Password *</label>
+                      <input type="password" id="password" name="password" class="form-control p_input">
+                    </div>
+                    <div class="form-group d-flex align-items-center justify-content-between">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input"> Remember me </label>
+                      </div>
+                      <a href="#" class="forgot-pass">Forgot password</a>
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
+                    </div>
+                    <p class="sign-up">Don't have an Account? Sign Up</p>
+                  </form>
+                </div>
+
+              </div>
+              
+            </div>
+          </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- row ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    
+    <!-- plugins:js -->
+    <script src="static/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="static/js/off-canvas.js"></script>
+    <script src="static/js/hoverable-collapse.js"></script>
+    <script src="static/js/misc.js"></script>
+    <script src="static/js/settings.js"></script>
+    <script src="static/js/todolist.js"></script>
+    <!-- endinject -->
+  </body>
+</html>

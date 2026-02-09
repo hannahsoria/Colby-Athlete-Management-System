@@ -1,0 +1,143 @@
+<!-- HTML base creates the front end for this page to then extend to other pages
+ 2022 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <!-- title -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %} Colby College Athlete Management System {% endblock %}</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/static/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="/static/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/static/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/vendors/select2/select2.min.css">
+     <link rel="stylesheet" href="/static/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- End layout styles -->
+
+    <link rel="shortcut icon" href="/static/images/logo.svg" />
+  </head>
+  <body>
+
+    <!-- mule logo -->
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="/static/images/logo-mini.svg" alt="logo" /></a>
+      </div>
+      <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+        <img src="/static/images/mule1.png" alt="image" />
+        
+        <!-- coach nav bar -->
+        {% if current_user.is_authenticated and current_user.role == 'coach' %}
+        <ul class="navbar-nav w-100">
+            <li class="nav-item w-100">
+                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                <input type="text" class="form-control" placeholder="Search Athletes">
+                </form>
+            </li>
+        </ul>
+        {% endif %}
+
+         <!-- admin home button -->
+        {% if current_user.is_authenticated and current_user.role == "admin" %}
+        <ul class="navbar-nav mr-3">
+          <li class="nav-item">
+            <a class="nav-link btn btn-black text-white"
+              href="{{ url_for('views.adminView') }}">
+              Home
+            </a>
+          </li>
+        </ul>
+        {% endif %}
+
+        <!-- drop down for coaches -->
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+              <div class="navbar-profile">
+                <img class="img-xs rounded-circle" src="/static/images/user.png" alt="">
+                <p class="mb-0 d-none d-sm-block navbar-profile-name">{{current_user.first_name}}</p>
+                <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+              {% if current_user.role == 'coach' %}
+                <div class="preview-item-content">
+                  <p class="preview-subject mb-1">Notifications</p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+                <div class="preview-item-content">
+                  <p class="preview-subject mb-1">Schedule</p>
+                </div>
+              </a>
+              {% endif %}
+              <div class="dropdown-divider"></div>
+                <div class="preview-item-content">
+                  <a href="{{url_for('auth.logout')}}">Logout</a>
+                </div>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="mdi mdi-format-line-spacing"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+
+    <div class="container-scroller">
+        <div class="container-fluid">
+          <div class="main-panel">
+            <div class="content-wrapper">
+        {% block content%}
+        {% endblock %}
+        <!-- content-wrapper ends -->
+        
+      </div>
+      <!-- main-panel ends -->
+    </div>
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->  
+
+    <!-- plugins:js -->
+    <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/static/vendors/chart.js/Chart.min.js"></script>
+    <script src="/static/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="/static/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="/static/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/static/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/static/js/off-canvas.js"></script>
+    <script src="/static/js/hoverable-collapse.js"></script>
+    <script src="/static/js/misc.js"></script>
+    <script src="/static/js/settings.js"></script>
+    <script src="/static/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/static/js/dashboard.js"></script>
+    <script src="/static/js/chart.js"></script>
+    <script src="/static/vendors/select2/select2.min.js"></script>
+    <script src="/static/js/select2.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>
