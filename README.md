@@ -11,3 +11,15 @@ For data, she provided anonymized data from real athletes. This data was provide
 When the flask app is run it creates a Flask and SQLAlchemy relational database. The database type is SQLlite. This createse several different tables including: user, hawkins, nutrition, sleep, and readiness. Due to user_id the database is able to pull information for one specific user. Currently in this version of the app the database is storing the three different demo users given: Anne (admin), John (coach), athlete (athlete) and lets the app show them the different and correct views and therefore protect sensitive information and data viewing. The actual data for the athletes comes from the csv.
 
 The app is successful in having three different user types with specific viewing capabilities, using csv data to populate graphics, using a databae to store users. Future iterations, or wishlist additions, include signup features for new athletes, give the admin more control including deleting users, giving admin users ability to write notes, giving athletes the ability to add information, and giving more informative data from the stats given.
+
+To run the code:
+
+Create a virtual environment:
+python3 -m venv venv
+source venv/bin/activate
+
+Install requirements:
+pip install -r requirements.txt
+
+Deploy app:
+Python main.py
