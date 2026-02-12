@@ -12,14 +12,14 @@ When the flask app is run it creates a Flask and SQLAlchemy relational database.
 
 The app is successful in having three different user types with specific viewing capabilities, using csv data to populate graphics, using a databae to store users. Future iterations, or wishlist additions, include signup features for new athletes, give the admin more control including deleting users, giving admin users ability to write notes, giving athletes the ability to add information, and giving more informative data from the stats given.
 
-To run the code:
+To run the code: <br/>
 
-Create a virtual environment:
-python3 -m venv venv
-source venv/bin/activate
+Create a virtual environment:<br/>
+python3 -m venv venv<br/>
+source venv/bin/activate<br/>
 
-Install requirements:
-pip install -r requirements.txt
+Install requirements:<br/>
+pip install -r requirements.txt<br/>
 
-Deploy app:
-Python main.py
+Deploy app:<br/>
+Python main.py<br/>
